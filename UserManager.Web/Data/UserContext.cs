@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using UserManager.Web.Models;
 
 namespace UserManager.Web.Data
@@ -13,22 +14,27 @@ namespace UserManager.Web.Data
         /// </summary>
         /// <param name="options">DbContextOptions</param>
         public UserContext(DbContextOptions<UserContext> options) : base(options) { }
+
         /// <summary>
-        /// Class constructor
+        /// User DbSet
         /// </summary>
-        /// <param name="options">DbContextOptions</param>
-        public DbSet<UserManager.Web.Models.User> User { get; set; }
+        public DbSet<User> User { get; set; }
 
+        /// <summary>
+        /// Overide virtual OnModelBuilder method to seed the database
+        /// </summary>
+        /// <param name="builder">ModelBuilder</param>
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
 
-        //protected override void OnModelCreating(ModelBuilder builder)
-        //{
-        //    base.OnModelCreating(builder);
-
-        //    builder.Entity<People>().HasData(
-        //        new People { Id = 1, Name = "Bob Smith", DateOfBirth = DateTime.Parse("1980/12/01") },
-        //        new People { Id = 2, Name = "Jane Auburn", DateOfBirth = DateTime.Parse("1988/03/22") },
-        //        new People { Id = 3, Name = "William Burrows", DateOfBirth = DateTime.Parse("1979/04/05") }
-        //        );
-        //}
+            builder.Entity<User>().HasData(
+                new User { Id = 1, FirstName = "Roger", LastName = "Waters", Email = "rwaters@floydmail.com", DateOfBirth = DateTime.Parse("1950/03/15"), CustCode = "rogerwaters19500315" },
+                new User { Id = 2, FirstName = "David", LastName = "Gilmour", Email = "dgilmour@floydmail.com", DateOfBirth = DateTime.Parse("1955/08/12"), CustCode = "davidgilmour19550812" },
+                new User { Id = 3, FirstName = "Nick", LastName = "Mason", Email = "nmason@floydmail.com", DateOfBirth = DateTime.Parse("1952/11/01"), CustCode = "nickmason19521101" },
+                new User { Id = 4, FirstName = "Richard", LastName = "Wright", Email = "rwright@floydmail.com", DateOfBirth = DateTime.Parse("1957/08/10"), CustCode = "richardwright19570810" },
+                new User { Id = 5, FirstName = "Syd", LastName = "Barrett", Email = "sbarrett@floydmail.com", DateOfBirth = DateTime.Parse("1954/02/22"), CustCode = "sydbarrett19540222" }
+                );
+        }
     }
 }
