@@ -126,6 +126,12 @@
              value="Save"
              class="btn btn-outline-success"
              [disabled]="!detailForm.valid">
+      <button class="btn btn-outline-danger"
+              (click)="delete(user)"
+              [disabled]="user.id == 0"
+              >
+        Delete
+      </button>
     </form>
   </div>
   <app-service-message></app-service-message>

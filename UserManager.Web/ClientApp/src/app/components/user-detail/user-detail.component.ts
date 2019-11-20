@@ -7,8 +7,8 @@ import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
+    selector: 'app-user-detail',
+    templateUrl: './user-detail.component.html',
 })
 export class UserDetailComponent implements OnInit {
     private user: User;
@@ -48,5 +48,11 @@ export class UserDetailComponent implements OnInit {
             this.userService.updateUser(this.user)
                 .subscribe(() => this.goBack());
         }
-    } 
+    }
+
+    delete(user: User): void {
+        if (confirm(`Are you sure you want to delete ${user.firstName} ${user.lastName}?`)) {
+            this.userService.deleteUser(this.user).subscribe();
+        }
+    }
 }
