@@ -22,12 +22,12 @@ namespace UserManager.Web.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUser()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.User.OrderBy(x => x.DateOfBirth).Take(5).ToListAsync();
         }
 
-        // GET: api/Users/5
+        // GET: api/User/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
@@ -41,7 +41,7 @@ namespace UserManager.Web.Controllers
             return user;
         }
 
-        // PUT: api/Users/5
+        // PUT: api/User/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
@@ -73,7 +73,7 @@ namespace UserManager.Web.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
+        // POST: api/User
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {

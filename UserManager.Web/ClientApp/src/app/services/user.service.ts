@@ -22,16 +22,16 @@ export class UserService {
 
     /** GET list of users from the server */
     getUsers(): Observable<User[]> {
-        return this.http.get<User[]>(this.baseUrl + 'api/user')
+        return this.http.get<User[]>(this.baseUrl + 'api/users')
             .pipe(
                 tap(_ => this.log('fetched users')),
-                catchError(this.handleError<User[]>('getUser', []))
+                catchError(this.handleError<User[]>('getUsers', []))
             );
     }
 
     /** GET user by id. Will 404 if id not found */
     getUser(id: number): Observable<User> {
-        return this.http.get<User>(this.baseUrl + 'api/user/' + id)
+        return this.http.get<User>(this.baseUrl + 'api/users/' + id)
             .pipe(
                 tap(_ => this.log(`fetched user id=${id}`)),
                 catchError(this.handleError<User>(`getUser id=${id}`))
@@ -40,7 +40,7 @@ export class UserService {
 
     /** PUT: update the user on the server */
     updateUser(user: User): Observable<any> {
-        return this.http.put(this.baseUrl + 'api/user/' + user.id, user, this.httpOptions)
+        return this.http.put(this.baseUrl + 'api/users/' + user.id, user, this.httpOptions)
             .pipe(
                 tap(_ => this.log(`updated user id=${user.id}`)),
                 catchError(this.handleError<any>('updateUser'))
@@ -49,7 +49,7 @@ export class UserService {
 
     /** POST: add a new user on the server */
     addUser(user: User): Observable<User> {
-        return this.http.post<User>(this.baseUrl + 'api/user', user, this.httpOptions)
+        return this.http.post<User>(this.baseUrl + 'api/users', user, this.httpOptions)
             .pipe(
                 tap((newUser: User) => this.log(`added new user id=${newUser.id}`)),
                 catchError(this.handleError<User>('addUser'))
@@ -59,7 +59,7 @@ export class UserService {
     /** DELETE: delete the user from the server */
     deleteUser(user: User | number): Observable<User> {
         const id = typeof user === 'number' ? user : user.id;
-        return this.http.delete<User>(this.baseUrl + 'api/user/' + id, this.httpOptions)
+        return this.http.delete<User>(this.baseUrl + 'api/users/' + id, this.httpOptions)
             .pipe(
                 tap(_ => this.log(`deleted user id=${id}`)),
                 catchError(this.handleError<User>(`deleteUser id=${id}`))
