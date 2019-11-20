@@ -31,11 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20191119105102_CreateDatabase.cs" />
-    <Compile Remove="Migrations\20191119105102_CreateDatabase.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="ClientApp\src\app\models\user.ts" />
   </ItemGroup>
 

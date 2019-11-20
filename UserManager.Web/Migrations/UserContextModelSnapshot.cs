@@ -22,11 +22,6 @@ namespace UserManager.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("CustCode")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasMaxLength(50);
-
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("TEXT");
 
@@ -53,7 +48,6 @@ namespace UserManager.Web.Migrations
                         new
                         {
                             Id = 1,
-                            CustCode = "rogerwaters19500315",
                             DateOfBirth = new DateTime(1950, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "rwaters@floydmail.com",
                             FirstName = "Roger",
@@ -62,7 +56,6 @@ namespace UserManager.Web.Migrations
                         new
                         {
                             Id = 2,
-                            CustCode = "davidgilmour19550812",
                             DateOfBirth = new DateTime(1955, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "dgilmour@floydmail.com",
                             FirstName = "David",
@@ -71,7 +64,6 @@ namespace UserManager.Web.Migrations
                         new
                         {
                             Id = 3,
-                            CustCode = "nickmason19521101",
                             DateOfBirth = new DateTime(1952, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nmason@floydmail.com",
                             FirstName = "Nick",
@@ -80,7 +72,6 @@ namespace UserManager.Web.Migrations
                         new
                         {
                             Id = 4,
-                            CustCode = "richardwright19570810",
                             DateOfBirth = new DateTime(1957, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "rwright@floydmail.com",
                             FirstName = "Richard",
@@ -89,7 +80,6 @@ namespace UserManager.Web.Migrations
                         new
                         {
                             Id = 5,
-                            CustCode = "sydbarrett19540222",
                             DateOfBirth = new DateTime(1954, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sbarrett@floydmail.com",
                             FirstName = "Syd",

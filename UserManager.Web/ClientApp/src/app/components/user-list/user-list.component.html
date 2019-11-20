@@ -32,7 +32,7 @@
           {{user.dateOfBirth | date}}
         </td>
         <td>
-          {{user.custCode}}
+          {{user.firstName | lowercase}}{{user.lastName | lowercase }}{{user.dateOfBirth | date: 'yyyyMMdd'}}
         </td>
       </tr>
     </tbody>

@@ -29,11 +29,11 @@ namespace UserManager.Web.Data
             base.OnModelCreating(builder);
 
             builder.Entity<User>().HasData(
-                new User { Id = 1, FirstName = "Roger", LastName = "Waters", Email = "rwaters@floydmail.com", DateOfBirth = DateTime.Parse("1950/03/15"), CustCode = "rogerwaters19500315" },
-                new User { Id = 2, FirstName = "David", LastName = "Gilmour", Email = "dgilmour@floydmail.com", DateOfBirth = DateTime.Parse("1955/08/12"), CustCode = "davidgilmour19550812" },
-                new User { Id = 3, FirstName = "Nick", LastName = "Mason", Email = "nmason@floydmail.com", DateOfBirth = DateTime.Parse("1952/11/01"), CustCode = "nickmason19521101" },
-                new User { Id = 4, FirstName = "Richard", LastName = "Wright", Email = "rwright@floydmail.com", DateOfBirth = DateTime.Parse("1957/08/10"), CustCode = "richardwright19570810" },
-                new User { Id = 5, FirstName = "Syd", LastName = "Barrett", Email = "sbarrett@floydmail.com", DateOfBirth = DateTime.Parse("1954/02/22"), CustCode = "sydbarrett19540222" }
+                new User { Id = 1, FirstName = "Roger", LastName = "Waters", Email = "rwaters@floydmail.com", DateOfBirth = DateTime.Parse("1950/03/15") },
+                new User { Id = 2, FirstName = "David", LastName = "Gilmour", Email = "dgilmour@floydmail.com", DateOfBirth = DateTime.Parse("1955/08/12") },
+                new User { Id = 3, FirstName = "Nick", LastName = "Mason", Email = "nmason@floydmail.com", DateOfBirth = DateTime.Parse("1952/11/01") },
+                new User { Id = 4, FirstName = "Richard", LastName = "Wright", Email = "rwright@floydmail.com", DateOfBirth = DateTime.Parse("1957/08/10") },
+                new User { Id = 5, FirstName = "Syd", LastName = "Barrett", Email = "sbarrett@floydmail.com", DateOfBirth = DateTime.Parse("1954/02/22") }
                 );
         }
     }

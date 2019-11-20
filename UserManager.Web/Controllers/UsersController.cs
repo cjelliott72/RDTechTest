@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UserManager.Web.Data;
 using UserManager.Web.Models;
@@ -50,8 +49,6 @@ namespace UserManager.Web.Controllers
                 return BadRequest();
             }
 
-            SetCustCode(user);
-
             _context.Entry(user).State = EntityState.Modified;
 
             try
@@ -77,7 +74,6 @@ namespace UserManager.Web.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-            SetCustCode(user);
             _context.User.Add(user);
             await _context.SaveChangesAsync();
 
@@ -103,15 +99,6 @@ namespace UserManager.Web.Controllers
         private bool UserExists(int id)
         {
             return _context.User.Any(e => e.Id == id);
-        }
-
-        private void SetCustCode(User user)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(user.FirstName.ToLower().Trim());
-            sb.Append(user.LastName.ToLower().Trim());
-            sb.Append(user.DateOfBirth.ToString("yyyyMMdd"));
-            user.CustCode = sb.ToString();
         }
     }
 }

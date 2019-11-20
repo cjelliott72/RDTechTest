@@ -40,12 +40,5 @@ namespace UserManager.Web.Models
         [Required]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
-
-        /// <summary>
-        /// Customer Code
-        /// </summary>
-        [Required]
-        [StringLength(50)]
-        public string CustCode { get; set; }
     }
 }
