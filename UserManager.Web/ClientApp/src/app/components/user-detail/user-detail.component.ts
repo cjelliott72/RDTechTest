@@ -49,10 +49,4 @@ export class UserDetailComponent implements OnInit {
                 .subscribe(() => this.goBack());
         }
     }
-
-    delete(user: User): void {
-        if (confirm(`Are you sure you want to delete ${user.firstName} ${user.lastName}?`)) {
-            this.userService.deleteUser(this.user).subscribe();
-        }
-    }
 }

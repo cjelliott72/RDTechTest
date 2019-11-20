@@ -23,7 +23,7 @@ namespace UserManager.Web.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.User.OrderBy(x => x.DateOfBirth).Take(5).ToListAsync();
+            return await _context.User.OrderBy(x => x.DateOfBirth).Take(5).OrderBy(x => x.LastName).ToListAsync();
         }
 
         // GET: api/User/5

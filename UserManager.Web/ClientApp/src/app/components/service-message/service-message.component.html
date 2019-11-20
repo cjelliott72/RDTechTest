@@ -18,6 +18,8 @@
         </li>
       </ol>
     </div>
-    <button class="btn btn-secondary btn-sm" (click)="messageService.clear()">Clear Messages</button>
+    <button class="btn btn-secondary btn-sm"
+            (click)="messageService.clear()"
+            [disabled]="messageService.messages.length == 0">Clear Messages</button>
   </div>
 </footer>

@@ -17,4 +17,11 @@ export class UserListComponent {
     getUsers(): void {
         this.userService.getUsers().subscribe(people => this.userList = people);
     }
+
+    delete(user: User): void {
+        if (confirm(`Are you sure you want to delete ${user.firstName} ${user.lastName}?`)) {
+            this.userList = this.userList.filter(h => h !== user);
+            this.userService.deleteUser(user).subscribe();
+        }
+    }
 }
