@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\components\service-message\service-message.component.html~RF14ec9fe.TMP" />
     <None Remove="ClientApp\src\app\models\user.ts" />
   </ItemGroup>
 
